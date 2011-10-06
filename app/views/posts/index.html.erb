@@ -1,0 +1,36 @@
+<style type="text/css">
+table {font-color: #917d67;
+  font-size: 8pt;
+  background-color: #190E02;
+  border: 1px solid #3c240a;
+  width: 100%;
+  }
+</style>
+
+<h1>BLOG POST LISTING:</h1>
+
+<table>
+  <tr class="header">
+    <th>NAME</th>
+    <th>TITLE</th>
+    <th>CONTENT</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.name %></td>
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
